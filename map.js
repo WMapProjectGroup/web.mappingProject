@@ -7,6 +7,7 @@
         maxZoom: 18
     }).addTo(map);
 
+
 function calculatePolygonArea() {
   var polygon = turf.polygon([[
     [-97.9420, 29.8910],
@@ -17,8 +18,13 @@ function calculatePolygonArea() {
   ]]);
 
   var area = turf.area(polygon);
-  L.geoJSON(polygon).addTo(map);
+  var polygonLayer = L.geoJSON(polygon).addTo(map);
   document.getElementById("areaDisplay").innerHTML =
       "Polygon Area: " + area.toFixed(2) + "square meters";
+  return polygonLayer;
 }
-calculatePolygonArea();
+ var polygonLayer = calculatePolygonArea();
+
+    var point = turf.point([-97.93428, 29.88829]);
+    L.geoJSON(point).addTo(map);
+    map.fitBounds(polygonLayer.getBounds());
