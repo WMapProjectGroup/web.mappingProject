@@ -6,3 +6,6 @@
         attribution: '&copy; ' + mapLink + ' Contributors',
         maxZoom: 18
     }).addTo(map);
+    var point = turf.point([-97.93428, 29.88829]);
+    L.geoJSON(point).addTo(map);
+    map.fitBounds(polygonLayer.getBounds());
