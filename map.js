@@ -7,13 +7,18 @@
         maxZoom: 18
     }).addTo(map);
 
-function createBuffer() {
-  var point = turf.point([-97.9384, 29.8884]);
+function calculatePolygonArea() {
+  var polygon = turf.polygon([[
+    [-97.9420, 29.8910],
+    [-97.9345, 29.8910],
+    [-97.9345, 29.8855],
+    [-97.9420, 29.8855],
+    [-97.9420, 29.8910]
+  ]]);
 
-  var buffered = turf.buffer(point, 0.5, {
-      units: 'kilometers'
-  });
-  L.geoJSON(buffered).addTo(map);
-  L.marker([29.884, -97.9384]).addTo(map);
+  var area = turf.area(polygon);
+  L.geoJSON(polygon).addTo(map);
+  document.getElementById("areaDisplay").innerHTML =
+      "Polygon Area: " + area.toFixed(2) + "square meters";
 }
-createBuffer();
+calculatePolygonArea();
