@@ -1,4 +1,4 @@
-    var map = L.map('map').setView([29.8884, -97.9384], 14);
+    var map = L.map('map').setView([29.88829, -97.93428], 17);
 
     var mapLink = '<a href="https://openstreetmap.org">OpenStreetMap</a>';
 
@@ -27,4 +27,3 @@ function calculatePolygonArea() {
 
     var point = turf.point([-97.93428, 29.88829]);
     L.geoJSON(point).addTo(map);
-    map.fitBounds(polygonLayer.getBounds());

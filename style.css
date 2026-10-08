@@ -7,6 +7,7 @@ html, body, #map {
     height: 100%;
     width: 100%;
 }
+
  #areaDisplay {
    position: absolute;
    top: 10px;
@@ -16,3 +17,7 @@ html, body, #map {
    padding: 10px;
    boarder-radius: 4px;
  }
+
+#map {
+    height: 500px;
+}
