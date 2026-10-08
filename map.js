@@ -8,3 +8,14 @@
     }).addTo(map);
     var point = turf.point([-97.93428, 29.88829]);
     L.geoJSON(point).addTo(map);
+    var bbox = [-97,9355, 29.8875, -97.9330, 29.8890];
+
+    var poly = turf.bboxPolygon(bbox);
+    l.geoJSON(poly,{
+      style: {
+        color:'#800000'
+        weight: 3,
+        fillColor: '#5c0000'
+        fillOpacity: 0.3
+      }
+    }).addTo(map)
