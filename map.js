@@ -6,3 +6,19 @@
         attribution: '&copy; ' + mapLink + ' Contributors',
         maxZoom: 18
     }).addTo(map);
+
+    function createBuffer() {
+        var point = turf.point([-97.9384, 29.8884]);
+
+        var buffered = turf.buffer(point, 1, {
+            units: 'miles'
+        });
+
+        L.geoJSON(buffered).addTo(map);
+
+        L.marker([29.8884, -97.9384])
+            .addTo(map)
+            .bindPopup("Buffer Center");
+    }
+
+    createBuffer();
